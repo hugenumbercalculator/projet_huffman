@@ -119,6 +119,7 @@ void write_dictionnary(Noeud *arbre, FILE *dictionnaire)
     if (arbre->mg){
         fprintf(dictionnaire,"%c : ",arbre->mg->caractere);
         while (file->first) fputc(defiler(&file),dictionnaire);
+        fputc("\n",dictionnaire);
         return;
     }
 
@@ -130,6 +131,7 @@ void write_dictionnary(Noeud *arbre, FILE *dictionnaire)
     if (arbre->md){
         fprintf(dictionnaire,"%c : ",arbre->md->caractere);
         while (file->first) fputc(defiler(&file),dictionnaire);
+        fputc("\n",dictionnaire);
         return;
     }
 }
