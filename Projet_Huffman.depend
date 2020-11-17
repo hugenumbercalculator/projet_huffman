@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1604433909 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet huffman\main.c
+	<stdio.h>
+	<stdlib.h>
+	"fonctions.h"
+
+1604433880 c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet huffman\fonctions.h
+
+1604436370 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet huffman\fonctions.c
+	<stdio.h>
+	<stdlib.h>
+	"fonctions.h"
+
+1605022986 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\fonctions.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"fonctions.h"
+
+1604911575 c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\fonctions.h
+	<stdbool.h>
+
+1604909658 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"fonctions.h"
+
