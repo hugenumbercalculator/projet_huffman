@@ -11,18 +11,26 @@
 	<stdlib.h>
 	"fonctions.h"
 
-1605022986 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\fonctions.c
+1605637073 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\fonctions.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"fonctions.h"
+	"files.h"
 
-1604911575 c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\fonctions.h
-	<stdbool.h>
+1605637436 c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\fonctions.h
 
-1604909658 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\main.c
+1605637385 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"fonctions.h"
+	"files.h"
+
+1605636880 c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\files.h
+
+1605634234 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\files.c
+	<stdio.h>
+	<stdlib.h>
+	"files.h"
 

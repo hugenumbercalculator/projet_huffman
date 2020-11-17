@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "fonctions.h"
+#include "files.h"
 
-void write_bin (char caractere)
+void write_binary (char caractere)
 {
     char tab[8] = "00000000";
     int x =128, entier = caractere;
@@ -31,7 +32,7 @@ void read_txt ()
     if (input != NULL){
         caractere = fgetc(input);
         while(caractere!=EOF){
-            write_bin(caractere); //ecriture binaire dans le fichier binary.txt
+            write_binary(caractere); //ecriture binaire dans le fichier binary.txt
             caractere = fgetc(input); //lecture du caractère suivant dans le fichier input.txt
         }
     }
@@ -101,6 +102,34 @@ Noeud huffman(Maillon *liste_occ, int nbr)
 {
     Noeud *arbre;
     arbre = (Noeud*)malloc(sizeof(Noeud));
+}
 
 
+void write_dictionnary(Noeud *arbre, FILE *dictionnaire)
+{
+    File *file;
+    file->first = NULL;
+
+    if (!arbre) return;
+
+    if (arbre->ng){
+        enfiler(&file,'0');
+        write_dictionnary(&arbre->ng, dictionnaire);
+    }
+    if (arbre->mg){
+        fprintf(dictionnaire,"%c : ",arbre->mg->caractere);
+        while (file->first) fputc(defiler(&file),dictionnaire);
+        return;
+    }
+
+
+    if (arbre->nd){
+        enfiler(&file,'1');
+        write_dictionnary(&arbre->nd, dictionnaire);
+    }
+    if (arbre->md){
+        fprintf(dictionnaire,"%c : ",arbre->md->caractere);
+        while (file->first) fputc(defiler(&file),dictionnaire);
+        return;
+    }
 }

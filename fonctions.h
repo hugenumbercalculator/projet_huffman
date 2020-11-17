@@ -1,6 +1,5 @@
 #ifndef FONCTIONS_H_INCLUDED
 #define FONCTIONS_H_INCLUDED
-#include <stdbool.h>
 
 typedef struct Maillon{
     char caractere;
@@ -15,7 +14,7 @@ typedef struct Noeud{
 }Noeud;
 
 // PARTIE 1
-void write_bin (char caractere);
+void write_binary (char caractere);
 void read_txt ();
 int nbr_char(FILE *fichier);
 
@@ -23,5 +22,6 @@ int nbr_char(FILE *fichier);
 Maillon occurrences();
 char minimum(Maillon *liste_occ);
 Noeud huffman(Maillon *liste_occ, int nbr);
+void write_dictionnary (Noeud *arbre, FILE *dictionnaire);
 
 #endif // FONCTIONS_H_INCLUDED
