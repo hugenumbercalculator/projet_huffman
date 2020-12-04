@@ -1,0 +1,74 @@
+\hypertarget{files_8h}{}\doxysection{files.\+h File Reference}
+\label{files_8h}\index{files.h@{files.h}}
+
+
+Header of queues\textquotesingle{} functions and structure.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_file}{File}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{files_8h_a8ddf7c8703042d9f9cb611a9bc9e9dae}\label{files_8h_a8ddf7c8703042d9f9cb611a9bc9e9dae}} 
+typedef struct \mbox{\hyperlink{struct_file}{File}} \mbox{\hyperlink{files_8h_a8ddf7c8703042d9f9cb611a9bc9e9dae}{File}}
+\begin{DoxyCompactList}\small\item\em pointer on the first queue\textquotesingle{}s element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{files_8h_a6929e14a8187a401622d65ee8d67bf51}{enfiler}} (\mbox{\hyperlink{struct_file}{File}} $\ast$file, \mbox{\hyperlink{struct_arbre}{Arbre}} $\ast$a)
+\begin{DoxyCompactList}\small\item\em Function that enqueue a queue. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_arbre}{Arbre}} \mbox{\hyperlink{files_8h_a518746dbccdb408a5d3ddae945868a5f}{defiler}} (\mbox{\hyperlink{struct_file}{File}} $\ast$file)
+\begin{DoxyCompactList}\small\item\em Function that dequeue a queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header of queues\textquotesingle{} functions and structure. 
+
+\begin{DoxyAuthor}{Author}
+Power Rangers 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{files_8h_a518746dbccdb408a5d3ddae945868a5f}\label{files_8h_a518746dbccdb408a5d3ddae945868a5f}} 
+\index{files.h@{files.h}!defiler@{defiler}}
+\index{defiler@{defiler}!files.h@{files.h}}
+\doxysubsubsection{\texorpdfstring{defiler()}{defiler()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_arbre}{Arbre}} defiler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_file}{File}} $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+Function that dequeue a queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & queue we have to process. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tree\textquotesingle{}s node, the first of the queue. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{files_8h_a6929e14a8187a401622d65ee8d67bf51}\label{files_8h_a6929e14a8187a401622d65ee8d67bf51}} 
+\index{files.h@{files.h}!enfiler@{enfiler}}
+\index{enfiler@{enfiler}!files.h@{files.h}}
+\doxysubsubsection{\texorpdfstring{enfiler()}{enfiler()}}
+{\footnotesize\ttfamily void enfiler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_file}{File}} $\ast$}]{file,  }\item[{\mbox{\hyperlink{struct_arbre}{Arbre}} $\ast$}]{a }\end{DoxyParamCaption})}
+
+
+
+Function that enqueue a queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & queue we have to process. \\
+\hline
+{\em The} & tree\textquotesingle{}s node we have to enqueue. \\
+\hline
+\end{DoxyParams}

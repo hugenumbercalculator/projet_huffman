@@ -11,25 +11,25 @@
 	<stdlib.h>
 	"fonctions.h"
 
-1605637475 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\fonctions.c
+1605639182 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\fonctions.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"fonctions.h"
 	"files.h"
 
-1605637436 c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\fonctions.h
+1605639182 c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\fonctions.h
 
-1605637385 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\main.c
+1606232402 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"fonctions.h"
 	"files.h"
 
-1605636880 c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\files.h
+1605639182 c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\files.h
 
-1605634234 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\files.c
+1605639182 source:c:\users\user\documents\.efrei\s3\algo\projets\huffman\projet_huffman\files.c
 	<stdio.h>
 	<stdlib.h>
 	"files.h"

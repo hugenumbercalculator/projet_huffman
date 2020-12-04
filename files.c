@@ -2,32 +2,31 @@
 #include <stdlib.h>
 #include "files.h"
 
-void enfiler(File *file, char caractere)
+void enfiler(File *file, Arbre *a)
 {
-    Element *nouveau = malloc(sizeof(Element));
-    nouveau->info = caractere;
-    nouveau->next = NULL;
+    Arbre *new_tree = malloc(sizeof(Arbre));
+    new_tree->noeud->caractere = a->noeud->caractere;
+    new_tree->noeud->occurrences = a->noeud->occurrences;
 
-    if (file->first != NULL)
+    if (file->first)
     {
-        Element *elementActuel = file->first;
-        while (elementActuel->next != NULL){
-            elementActuel = elementActuel->next;
+        Arbre *actual_tree = file->first;
+        while (actual_tree->noeud->next){
+            actual_tree = actual_tree->noeud->next;
         }
-        elementActuel->next = nouveau;
+        actual_tree->noeud->next = new_tree;
     }
-    else file->first = nouveau;
+    else file->first = new_tree;
 }
 
-char defiler(File *file)
+Arbre defiler(File *file)
 {
-    char caractere;
-
+    Arbre *tree;
     if(file->first){
-        Element *elementdefile = file->first;
-        caractere = elementdefile->info;
-        file->first = elementdefile->next;
-        free(elementdefile);
+        Arbre *actual_tree = file->first;
+        tree = actual_tree;
+        file->first = actual_tree->noeud->next;
+        free(actual_tree);
     }
-    return caractere;
+    return tree;
 }

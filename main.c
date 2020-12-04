@@ -6,7 +6,14 @@
 
 int main()
 {
-    Noeud *arbre;
+    // ALLOCATIONS DYNAMIQUES
+    Arbre *arbre;
+    arbre = (Arbre*)malloc(sizeof(Arbre));
+    Maillon *liste_occ, *liste_dic;
+    liste_occ = (Maillon*)malloc(sizeof(Maillon));
+    liste_dic = (Maillon*)malloc(sizeof(Maillon));
+
+    //OUVERTURE DES FICHIERS .TXT
     FILE *input, *binary, *dictionnaire;
     input = fopen("input.txt","r");
     binary = fopen("binary.txt","r");
@@ -15,10 +22,17 @@ int main()
     read_txt();
     printf("%d characters in input.txt\n",nbr_char(input));
     printf("%d characters in binary.txt\n",nbr_char(binary));
+    liste_occ = occurrences();
+    arbre = huffman(&liste_occ, nbr_char(input));
+    write_dictionnary(&arbre, dictionnaire, &liste_dic);
 
-    //write_dictionnary(&arbre, dictionnaire);
-
+    //FERMETURE DES FICHIERS .TXT
     fclose(input);
     fclose(binary);
     fclose(dictionnaire);
+
+    //LIBERATION MEMOIRE
+    free(arbre);
+    free(liste_occ);
+    free(liste_dic);
 }
