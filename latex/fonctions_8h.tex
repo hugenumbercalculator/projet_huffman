@@ -1,0 +1,158 @@
+\hypertarget{fonctions_8h}{}\doxysection{fonctions.\+h File Reference}
+\label{fonctions_8h}\index{fonctions.h@{fonctions.h}}
+
+
+Header of principals data structures and functions.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_maillon}{Maillon}}
+\item 
+struct \mbox{\hyperlink{struct_arbre}{Arbre}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{fonctions_8h_a540ecbb944b7a5bdc3e21b99ee6bfe7f}\label{fonctions_8h_a540ecbb944b7a5bdc3e21b99ee6bfe7f}} 
+typedef struct \mbox{\hyperlink{struct_maillon}{Maillon}} \mbox{\hyperlink{fonctions_8h_a540ecbb944b7a5bdc3e21b99ee6bfe7f}{Maillon}}
+\begin{DoxyCompactList}\small\item\em A \mbox{\hyperlink{struct_maillon}{Maillon}} is composed by a character, an integer, and a pointer to the next \mbox{\hyperlink{struct_maillon}{Maillon}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{fonctions_8h_affd1feccdb225997be494bcdb0572fa6}\label{fonctions_8h_affd1feccdb225997be494bcdb0572fa6}} 
+typedef struct \mbox{\hyperlink{struct_arbre}{Arbre}} \mbox{\hyperlink{fonctions_8h_affd1feccdb225997be494bcdb0572fa6}{Arbre}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_arbre}{Arbre}} owns 3 pointers \+: \mbox{\hyperlink{struct_maillon}{Maillon}}, and 2 other \mbox{\hyperlink{struct_arbre}{Arbre}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fonctions_8h_a22241c85a9835b33984ab9cf25f7d359}{write\+\_\+binary}} (char caractere)
+\begin{DoxyCompactList}\small\item\em Function that translate a character into binary sequence, and write it in a text file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{fonctions_8h_a31ff07f22051bbaecf99166bf24e4527}\label{fonctions_8h_a31ff07f22051bbaecf99166bf24e4527}} 
+void \mbox{\hyperlink{fonctions_8h_a31ff07f22051bbaecf99166bf24e4527}{read\+\_\+txt}} ()
+\begin{DoxyCompactList}\small\item\em Function that treat text files. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fonctions_8h_a70d9d8e26d51f8af2197e14ad33d29f7}{nbr\+\_\+char}} (F\+I\+LE $\ast$fichier)
+\begin{DoxyCompactList}\small\item\em Function that count the number of characters in a file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_maillon}{Maillon}} \mbox{\hyperlink{fonctions_8h_ae70b28de321dad448078e7f0836d1b67}{occurrences}} ()
+\begin{DoxyCompactList}\small\item\em Function that create a list of nodes representing characters in a text and their occurrences. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_maillon}{Maillon}} \mbox{\hyperlink{fonctions_8h_ae0b5b3467b584a369456b61d0453a249}{minimum}} (\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$liste\+\_\+occ)
+\begin{DoxyCompactList}\small\item\em Function that finds the minimum of a nodes list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_arbre}{Arbre}} \mbox{\hyperlink{fonctions_8h_ade422fd051db6693d80b6e1b8dbc69c6}{huffman}} (\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$liste\+\_\+occ, int nbr)
+\begin{DoxyCompactList}\small\item\em Function that create a Huffman Tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fonctions_8h_ad1dbe6502526ef57071a89365c723ed8}{write\+\_\+dictionnary}} (\mbox{\hyperlink{struct_arbre}{Arbre}} $\ast$arbre, F\+I\+LE $\ast$dictionnaire, \mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$liste\+\_\+dic)
+\begin{DoxyCompactList}\small\item\em Function that create a dictionary by attributing a new short binary sequence to each character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header of principals data structures and functions. 
+
+\begin{DoxyAuthor}{Author}
+Power Rangers 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fonctions_8h_ade422fd051db6693d80b6e1b8dbc69c6}\label{fonctions_8h_ade422fd051db6693d80b6e1b8dbc69c6}} 
+\index{fonctions.h@{fonctions.h}!huffman@{huffman}}
+\index{huffman@{huffman}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{huffman()}{huffman()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_arbre}{Arbre}} huffman (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$}]{liste\+\_\+occ,  }\item[{int}]{nbr }\end{DoxyParamCaption})}
+
+
+
+Function that create a Huffman Tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & list of nodes containing characters an their occurrences. \\
+\hline
+{\em An} & integer \+: character\textquotesingle{}s number in the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tree\textquotesingle{}s node, the first of the queue. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fonctions_8h_ae0b5b3467b584a369456b61d0453a249}\label{fonctions_8h_ae0b5b3467b584a369456b61d0453a249}} 
+\index{fonctions.h@{fonctions.h}!minimum@{minimum}}
+\index{minimum@{minimum}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{minimum()}{minimum()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_maillon}{Maillon}} minimum (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$}]{liste\+\_\+occ }\end{DoxyParamCaption})}
+
+
+
+Function that finds the minimum of a nodes list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & list we have to process. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A node. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fonctions_8h_a70d9d8e26d51f8af2197e14ad33d29f7}\label{fonctions_8h_a70d9d8e26d51f8af2197e14ad33d29f7}} 
+\index{fonctions.h@{fonctions.h}!nbr\_char@{nbr\_char}}
+\index{nbr\_char@{nbr\_char}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{nbr\_char()}{nbr\_char()}}
+{\footnotesize\ttfamily int nbr\+\_\+char (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{fichier }\end{DoxyParamCaption})}
+
+
+
+Function that count the number of characters in a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & file we have to process. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer representing the number of characters in the file. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fonctions_8h_ae70b28de321dad448078e7f0836d1b67}\label{fonctions_8h_ae70b28de321dad448078e7f0836d1b67}} 
+\index{fonctions.h@{fonctions.h}!occurrences@{occurrences}}
+\index{occurrences@{occurrences}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{occurrences()}{occurrences()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_maillon}{Maillon}} occurrences (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function that create a list of nodes representing characters in a text and their occurrences. 
+
+\begin{DoxyReturn}{Returns}
+A list of nodes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fonctions_8h_a22241c85a9835b33984ab9cf25f7d359}\label{fonctions_8h_a22241c85a9835b33984ab9cf25f7d359}} 
+\index{fonctions.h@{fonctions.h}!write\_binary@{write\_binary}}
+\index{write\_binary@{write\_binary}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{write\_binary()}{write\_binary()}}
+{\footnotesize\ttfamily void write\+\_\+binary (\begin{DoxyParamCaption}\item[{char}]{caractere }\end{DoxyParamCaption})}
+
+
+
+Function that translate a character into binary sequence, and write it in a text file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & character we have to write in binary. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_ad1dbe6502526ef57071a89365c723ed8}\label{fonctions_8h_ad1dbe6502526ef57071a89365c723ed8}} 
+\index{fonctions.h@{fonctions.h}!write\_dictionnary@{write\_dictionnary}}
+\index{write\_dictionnary@{write\_dictionnary}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{write\_dictionnary()}{write\_dictionnary()}}
+{\footnotesize\ttfamily void write\+\_\+dictionnary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_arbre}{Arbre}} $\ast$}]{arbre,  }\item[{F\+I\+LE $\ast$}]{dictionnaire,  }\item[{\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$}]{liste\+\_\+dic }\end{DoxyParamCaption})}
+
+
+
+Function that create a dictionary by attributing a new short binary sequence to each character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & Huffman tree. \\
+\hline
+{\em The} & text file we have to write on. \\
+\hline
+{\em A} & list of nodes containing characters an their occurrences. \\
+\hline
+\end{DoxyParams}
