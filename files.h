@@ -6,6 +6,7 @@
  *********************************************************************/
 #ifndef FILES_H_INCLUDED
 #define FILES_H_INCLUDED
+#include "fonctions.h"
 
  /**
  * \typedef struct File
@@ -27,6 +28,6 @@ void enfiler(File *file, Arbre *a);
  * \param The queue we have to process.
  * \return A tree's node, the first of the queue.
  */
-Arbre defiler(File *file);
+Arbre* defiler(File *file);
 
 #endif // FILES_H_INCLUDED

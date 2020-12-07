@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "files.h"
+#include "fonctions.h"
 
 void enfiler(File *file, Arbre *a)
 {
@@ -19,7 +20,7 @@ void enfiler(File *file, Arbre *a)
     else file->first = new_tree;
 }
 
-Arbre defiler(File *file)
+Arbre* defiler(File *file)
 {
     Arbre *tree;
     if(file->first){
