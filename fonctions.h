@@ -50,14 +50,14 @@ int nbr_char(FILE *fichier);
  * \brief Function that create a list of nodes representing characters in a text and their occurrences.
  * \return A list of nodes.
  */
-Maillon occurrences();
+Maillon* occurrences();
 
 /**
  * \brief Function that finds the minimum of a nodes list.
  * \param The list we have to process.
  * \return A node.
  */
-Maillon minimum(Maillon *liste_occ);
+Maillon* minimum(Maillon *liste_occ);
 
 /**
  * \brief Function that create a Huffman Tree.
@@ -65,7 +65,7 @@ Maillon minimum(Maillon *liste_occ);
  * \param An integer : character's number in the file.
  * \return A tree's node, the first of the queue.
  */
-Arbre huffman(Maillon *liste_occ, int nbr);
+Arbre* create_huffman_tree(Maillon **liste_occ, int nbr);
 
 /**
  * \brief Function that create a dictionary by attributing a new short binary sequence to each character.
@@ -73,6 +73,6 @@ Arbre huffman(Maillon *liste_occ, int nbr);
  * \param The text file we have to write on.
  * \param A list of nodes containing characters an their occurrences.
  */
-void write_dictionnary (Arbre *arbre, FILE *dictionnaire, Maillon *liste_dic);
+void write_dictionnary (Arbre *arbre_huffman, FILE *dictionnary, Maillon *liste_dic);
 
 #endif // FONCTIONS_H_INCLUDED

@@ -51,40 +51,46 @@ int nbr_char(FILE *fichier)
     }
 }
 
-Maillon occurrences()
+Maillon* occurrences()
 {
     Maillon *liste_occ, *temp;
+    liste_occ = (Maillon*)malloc(sizeof(Maillon));
+    temp = (Maillon*)malloc(sizeof(Maillon));
     FILE *fichier;
     fichier = fopen("input.txt","r");
     char caractere = fgetc(fichier);
     bool run;
+    printf("declaration OK\n");
 
     while(caractere != EOF){
         temp = liste_occ;
         run = true;
-
-        while (run && temp != NULL){
+        while (run && temp){
+            printf(" 2e while OK\n");
             if (temp->caractere == caractere){
+                printf("entre dans la condition\n");
                 temp->occurrences += 1;
                 run = false;
             }
             temp = temp->next;
         }
         if (run){
-            temp = malloc(sizeof(Maillon));
+            temp = (Maillon*)malloc(sizeof(Maillon));
             temp->caractere = caractere;
             temp->occurrences = 1;
             temp->next = NULL;
+            printf("premier OK\n");
         }
         caractere = fgetc(fichier);
     }
     fclose(fichier);
-    //return liste_occ;
+    return liste_occ;
 }
 
-Maillon minimum(Maillon *liste_occ)
+Maillon* minimum(Maillon *liste_occ)
 {
     Maillon *temp;
+    temp = (Maillon*)malloc(sizeof(Maillon));
     temp->caractere = liste_occ->caractere;
     temp->occurrences = liste_occ->occurrences;
     liste_occ = liste_occ->next;
@@ -99,63 +105,64 @@ Maillon minimum(Maillon *liste_occ)
     return temp;
 }
 
-Arbre huffman(Maillon *liste_occ, int nbr)
+Arbre* create_huffman_tree(Maillon **liste_occ, int nbr)
 {
-    Arbre *arbre;
-    arbre = (Arbre*)malloc(sizeof(Arbre));
+    Arbre *arbre_huffman;
     File *file;
+    arbre_huffman = (Arbre*)malloc(sizeof(Arbre));
+    file = (File*)malloc(sizeof(File));
 
     for (int i=0; i<nbr; i++){
-        arbre->noeud->occurences = minimum(&liste_occ)->occurrences;
-        arbre->noeud->caractere = minimum(&liste_occ)->caractere;
-        enfiler(file,&arbre);
+        arbre_huffman->noeud->occurrences = minimum(&liste_occ)->occurrences;
+        arbre_huffman->noeud->caractere = minimum(&liste_occ)->caractere;
+        enfiler(file,arbre_huffman);
     }
 
     while (file){
-        arbre->sag = defiler(file);
-        arbre->sad = defiler(file);
-        arbre->noeud->occurrences = arbre->sad->noeud->occurrences + arbre->sag->noeud->occurrences;
+        arbre_huffman->sag = defiler(file);
+        arbre_huffman->sad = defiler(file);
+        arbre_huffman->noeud->occurrences = arbre_huffman->sad->noeud->occurrences + arbre_huffman->sag->noeud->occurrences;
     }
-    return arbre;
+    return arbre_huffman;
 }
 
 
-void write_dictionnary(Arbre *arbre, FILE *dictionnaire, Maillon *liste_dic)
+void write_dictionnary(Arbre *arbre_huffman, FILE *dictionnary, Maillon *liste_dic)
 {
     Maillon *temp;
     temp = liste_dic;
 
-    if (!arbre) return;
+    if (!arbre_huffman) return;
 
-    if (arbre->sag){ //REMPLISSAGE DU DICTIONNAIRE
+    if (arbre_huffman->sag){ //REMPLISSAGE DU DICTIONNAIRE
         temp->caractere = '0';
         temp = temp->next;
-        write_dictionnary(&arbre->sag, dictionnaire);
+        write_dictionnary(arbre_huffman->sag, dictionnary, liste_dic);
     }
-    if (arbre->noeud->caractere){ //ECRITURE DANS LE DICTIONNAIRE
-        fprintf(dictionnaire,"%c : ",arbre->noeud->caractere);
-        temp = liste;
+    if (arbre_huffman->noeud->caractere){ //ECRITURE DANS LE DICTIONNAIRE
+        fprintf(dictionnary,"%c : ",arbre_huffman->noeud->caractere);
+        temp = liste_dic;
         while (temp != NULL){
-            fputc(temp->caractere,dictionnaire);
+            fputc(temp->caractere,dictionnary);
             temp = temp->next;
         }
-        fputc("\n",dictionnaire);
+        fputc("\n",dictionnary);
         return;
     }
 
-    if (arbre->sad){  //REMPLISSAGE DU DICTIONNAIRE
+    if (arbre_huffman->sad){  //REMPLISSAGE DU DICTIONNAIRE
         temp->caractere = '1';
         temp = temp->next;
-        write_dictionnary(&arbre->sad, dictionnaire);
+        write_dictionnary(arbre_huffman->sad, dictionnary, liste_dic);
     }
-    if (arbre->md){ //ECRITURE DANS LE DICTIONNAIRE
-        fprintf(dictionnaire,"%c : ",arbre->noeud->caractere);
-        temp = liste;
+    if (arbre_huffman->noeud->caractere){ //ECRITURE DANS LE DICTIONNAIRE
+        fprintf(dictionnary,"%c : ",arbre_huffman->noeud->caractere);
+        temp = liste_dic;
         while (temp != NULL){
-            fputc(temp->caractere,dictionnaire);
+            fputc(temp->caractere,dictionnary);
             temp = temp->next;
         }
-        fputc("\n",dictionnaire);
+        fputc("\n",dictionnary);
         return;
     }
 }
