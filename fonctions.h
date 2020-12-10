@@ -65,14 +65,31 @@ Maillon* minimum(Maillon *liste_occ);
  * \param An integer : character's number in the file.
  * \return A tree's node, the first of the queue.
  */
-Arbre* create_huffman_tree(Maillon **liste_occ, int nbr);
+Arbre* create_huffman_tree(Maillon *liste_occ, int nbr);
 
 /**
  * \brief Function that create a dictionary by attributing a new short binary sequence to each character.
  * \param The Huffman tree.
  * \param The text file we have to write on.
- * \param A list of nodes containing characters an their occurrences.
+ * \param A list of nodes containing binary suites.
  */
-void write_dictionnary (Arbre *arbre_huffman, FILE *dictionnary, Maillon *liste_dic);
+void write_dictionary (Arbre *arbre_huffman, FILE *dictionary, Maillon *liste_dic);
+
+/**
+ * \brief Function that create
+ */
+void encodage();
+
+/**
+ * \brief Function that free up a linked list memory space.
+ * \param The linked list.
+ */
+void liberation_liste(Maillon* liste);
+
+/**
+ * \brief Function that free up a tree's memory space
+ * \param The Huffman tree.
+ */
+void liberation_arbre(Arbre *arbre);
 
 #endif // FONCTIONS_H_INCLUDED
