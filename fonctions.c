@@ -53,38 +53,47 @@ int nbr_char(FILE *fichier)
 
 Maillon* occurrences()
 {
-    Maillon *liste_occ, *temp;
-    liste_occ = (Maillon*)malloc(sizeof(Maillon));
-    temp = (Maillon*)malloc(sizeof(Maillon));
     FILE *fichier;
     fichier = fopen("input.txt","r");
+    Maillon *liste, *liste_ref;
     char caractere = fgetc(fichier);
     bool run;
-    printf("declaration OK\n");
+    int i=0;
 
-    while(caractere != EOF){
-        temp = liste_occ;
+    while (caractere != EOF){
         run = true;
-        while (run && temp){
-            printf(" 2e while OK\n");
-            if (temp->caractere == caractere){
-                printf("entre dans la condition\n");
-                temp->occurrences += 1;
+        if (i==0) // CAS VIDE
+        {
+            liste_ref = (Maillon*)malloc(sizeof(Maillon));
+            liste_ref->caractere = caractere;
+            liste_ref->occurrences = 0;
+            liste_ref->next = NULL;
+        }
+        liste = liste_ref;
+        while(liste){ //CAS CARACTERE DEJA PRESENT
+            if(liste->caractere == caractere){
+                liste->occurrences += 1;
                 run = false;
             }
-            temp = temp->next;
+            liste = liste->next;
         }
-        if (run){
-            temp = (Maillon*)malloc(sizeof(Maillon));
-            temp->caractere = caractere;
-            temp->occurrences = 1;
-            temp->next = NULL;
-            printf("premier OK\n");
+        // PLACEMENT DANS LE DERNIER MAILLON
+        liste = liste_ref;
+        while(liste->next != NULL)
+            liste = liste->next;
+        if(run){ //INSERTION D'UN NOUVEAU MAILLON
+            Maillon *nouveau_maillon;
+            nouveau_maillon = (Maillon*)malloc(sizeof(Maillon));
+            nouveau_maillon->caractere = caractere;
+            nouveau_maillon->occurrences = 1;
+            nouveau_maillon->next = NULL;
+            liste->next = nouveau_maillon;
         }
         caractere = fgetc(fichier);
+        i++;
     }
     fclose(fichier);
-    return liste_occ;
+    return liste_ref;
 }
 
 Maillon* minimum(Maillon *liste_occ)
@@ -105,7 +114,7 @@ Maillon* minimum(Maillon *liste_occ)
     return temp;
 }
 
-Arbre* create_huffman_tree(Maillon **liste_occ, int nbr)
+Arbre* create_huffman_tree(Maillon *liste_occ, int nbr)
 {
     Arbre *arbre_huffman;
     File *file;
@@ -127,7 +136,7 @@ Arbre* create_huffman_tree(Maillon **liste_occ, int nbr)
 }
 
 
-void write_dictionnary(Arbre *arbre_huffman, FILE *dictionnary, Maillon *liste_dic)
+void write_dictionary(Arbre *arbre_huffman, FILE *dictionary, Maillon *liste_dic)
 {
     Maillon *temp;
     temp = liste_dic;
@@ -137,32 +146,64 @@ void write_dictionnary(Arbre *arbre_huffman, FILE *dictionnary, Maillon *liste_d
     if (arbre_huffman->sag){ //REMPLISSAGE DU DICTIONNAIRE
         temp->caractere = '0';
         temp = temp->next;
-        write_dictionnary(arbre_huffman->sag, dictionnary, liste_dic);
+        write_dictionary(arbre_huffman->sag, dictionary, liste_dic);
     }
     if (arbre_huffman->noeud->caractere){ //ECRITURE DANS LE DICTIONNAIRE
-        fprintf(dictionnary,"%c : ",arbre_huffman->noeud->caractere);
+        fprintf(dictionary,"%c : ",arbre_huffman->noeud->caractere);
         temp = liste_dic;
         while (temp != NULL){
-            fputc(temp->caractere,dictionnary);
+            fputc(temp->caractere,dictionary);
             temp = temp->next;
         }
-        fputc("\n",dictionnary);
+        fputc("\n",dictionary);
         return;
     }
 
     if (arbre_huffman->sad){  //REMPLISSAGE DU DICTIONNAIRE
         temp->caractere = '1';
         temp = temp->next;
-        write_dictionnary(arbre_huffman->sad, dictionnary, liste_dic);
+        write_dictionary(arbre_huffman->sad, dictionary, liste_dic);
     }
     if (arbre_huffman->noeud->caractere){ //ECRITURE DANS LE DICTIONNAIRE
-        fprintf(dictionnary,"%c : ",arbre_huffman->noeud->caractere);
+        fprintf(dictionary,"%c : ",arbre_huffman->noeud->caractere);
         temp = liste_dic;
         while (temp != NULL){
-            fputc(temp->caractere,dictionnary);
+            fputc(temp->caractere,dictionary);
             temp = temp->next;
         }
-        fputc("\n",dictionnary);
+        fputc("\n",dictionary);
         return;
     }
+}
+
+void encodage()
+{
+    FILE *new_file, *dictionnary;
+    new_file = fopen("encoding.txt","w");
+    dictionnary = fopen("dictionnary.txt","r");
+
+    fclose(new_file);
+}
+
+void liberation_liste(Maillon *liste)
+{
+    if (liste==NULL) return;
+    Maillon *actuel;
+    actuel = (Maillon*)malloc(sizeof(Maillon));
+    while(liste)
+    {
+        actuel = liste;
+        liste = liste->next;
+        free(actuel);
+    }
+}
+
+void liberation_arbre(Arbre *arbre)
+{
+    if(!arbre) return;
+    liberation_liste(arbre->noeud);
+    liberation_arbre(arbre->sag);
+    liberation_arbre(arbre->sad);
+    free(arbre);
+    arbre = NULL;
 }
