@@ -3,7 +3,6 @@
 #include <stdbool.h>
 #include "fonctions.h"
 #include "files.h"
-// essaiii
 
 void write_binary (char caractere)
 {
@@ -12,7 +11,7 @@ void write_binary (char caractere)
     FILE *binary;
     binary = fopen("binary.txt","a");
 
-    for (int i=0; i<8; i++){ //boucle de remplissage du tableau de caractï¿½res
+    for (int i=0; i<8; i++){ //boucle de remplissage du tableau de caractères
         if (entier-x>=0){
             tab[i] = '1';
             entier -= x;
@@ -34,7 +33,7 @@ void read_txt ()
         caractere = fgetc(input);
         while(caractere!=EOF){
             write_binary(caractere); //ecriture binaire dans le fichier binary.txt
-            caractere = fgetc(input); //lecture du caractï¿½re suivant dans le fichier input.txt
+            caractere = fgetc(input); //lecture du caractère suivant dans le fichier input.txt
         }
     }
     fclose(input);
@@ -122,20 +121,15 @@ Arbre* create_huffman_tree(Maillon *liste_occ, int nbr)
     arbre_huffman = (Arbre*)malloc(sizeof(Arbre));
     file = (File*)malloc(sizeof(File));
 
-
     for (int i=0; i<nbr; i++){
         arbre_huffman->noeud->occurrences = minimum(&liste_occ)->occurrences;
-
         arbre_huffman->noeud->caractere = minimum(&liste_occ)->caractere;
         enfiler(file,arbre_huffman);
-
-        
     }
 
     while (file){
         arbre_huffman->sag = defiler(file);
         arbre_huffman->sad = defiler(file);
-
         arbre_huffman->noeud->occurrences = arbre_huffman->sad->noeud->occurrences + arbre_huffman->sag->noeud->occurrences;
     }
     return arbre_huffman;
