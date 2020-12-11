@@ -3,6 +3,8 @@
 #include "files.h"
 #include "fonctions.h"
 
+
+// fichier h
 void enfiler(File *file, Arbre *a)
 {
     Arbre *new_tree = malloc(sizeof(Arbre));
