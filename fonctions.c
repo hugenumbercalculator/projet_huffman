@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include "fonctions.h"
 #include "files.h"
+// essaiii
 
 void write_binary (char caractere)
 {
