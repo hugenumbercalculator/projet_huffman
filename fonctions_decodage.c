@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include "fonctions.h"
 #include "files.h"
+//fct decodage
+
 
 void write_binary (char caractere)
 {
