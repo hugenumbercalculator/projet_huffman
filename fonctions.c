@@ -10,7 +10,7 @@ void write_bin (char caractere)
     FILE *binary;
     binary = fopen("binary.txt","a");
 
-    for (int i=0; i<8; i++){ //boucle de remplissage du tableau de caractères
+    for (int i=0; i<8; i++){ //boucle de remplissage du tableau de caractÃ¨res
         if (entier-x>=0){
             tab[i] = '1';
             entier -= x;
@@ -32,7 +32,7 @@ void read_txt ()
         caractere = fgetc(input);
         while(caractere!=EOF){
             write_bin(caractere); //ecriture binaire dans le fichier binary.txt
-            caractere = fgetc(input); //lecture du caractère suivant dans le fichier input.txt
+            caractere = fgetc(input); //lecture du caractÃ¨re suivant dans le fichier input.txt
         }
     }
     fclose(input);
@@ -103,4 +103,18 @@ Noeud huffman(Maillon *liste_occ, int nbr)
     arbre = (Noeud*)malloc(sizeof(Noeud));
 
 
+}
+
+void codage_fichier(char* fichierinput,char* fichieroutput,char *dictionnaire[256])
+{
+  char chaine[500];
+  //Element_d *temp = liste;
+  FILE* texte = fopen(fichierinput, "r");
+  FILE* texteout = fopen(fichieroutput, "w");
+  while (fgets(chaine,500,texte))
+  {
+    for (int j=0;chaine[j]!='0';j++) fprintf(texteout,"%s",dictionnaire[chaine[j]]);
+  }
+  fclose(texte);
+  fclose(texteout);
 }
