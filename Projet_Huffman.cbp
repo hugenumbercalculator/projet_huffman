@@ -42,6 +42,14 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="optimisation.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="optimisation.h" />
+		<Unit filename="test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="test.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

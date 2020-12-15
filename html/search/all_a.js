@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['write_5fbinary_13',['write_binary',['../fonctions_8h.html#a22241c85a9835b33984ab9cf25f7d359',1,'fonctions.c']]],
-  ['write_5fdictionnary_14',['write_dictionnary',['../fonctions_8h.html#ad1dbe6502526ef57071a89365c723ed8',1,'fonctions.c']]]
+  ['write_5fbinary_18',['write_binary',['../fonctions_8h.html#a22241c85a9835b33984ab9cf25f7d359',1,'fonctions.c']]],
+  ['write_5fdictionary_19',['write_dictionary',['../fonctions_8h.html#af7e47870a7c6f744e396e9692ea5140e',1,'fonctions.c']]]
 ];

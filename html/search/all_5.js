@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['maillon_7',['Maillon',['../struct_maillon.html',1,'Maillon'],['../fonctions_8h.html#a540ecbb944b7a5bdc3e21b99ee6bfe7f',1,'Maillon():&#160;fonctions.h']]],
-  ['minimum_8',['minimum',['../fonctions_8h.html#ae0b5b3467b584a369456b61d0453a249',1,'fonctions.c']]]
+  ['liberation_5farbre_10',['liberation_arbre',['../fonctions_8h.html#a375c623736102300c74f7607b0e11995',1,'fonctions.c']]],
+  ['liberation_5fliste_11',['liberation_liste',['../fonctions_8h.html#a0175613b2fd25e7a40d12ebad44e6360',1,'fonctions.c']]]
 ];

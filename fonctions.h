@@ -43,7 +43,14 @@ void read_txt ();
  * \param The file we have to process.
  * \return An integer representing the number of characters in the file.
  */
-int nbr_char(FILE *fichier);
+int count_char(FILE *fichier);
+
+/**
+ * \brief Function that count the number of character's occurrences of a simply linked list.
+ * \param The list we have to process.
+ * \return An integer representing the number of occurrences.
+ */
+int count_node(Maillon *liste);
 
 // PARTIE 2
 /**
@@ -57,7 +64,13 @@ Maillon* occurrences();
  * \param The list we have to process.
  * \return A node.
  */
-Maillon* minimum(Maillon *liste_occ);
+Maillon* minimum_of_a_list(Maillon *liste_occ);
+
+/** \brief Function that delete a node of a simply chained list.
+ * \param The list we have to process.
+ * \param The character of the node we have to delete.
+ */
+void delete_node(Maillon **liste_occ, char caractere);
 
 /**
  * \brief Function that create a Huffman Tree.
@@ -75,10 +88,8 @@ Arbre* create_huffman_tree(Maillon *liste_occ, int nbr);
  */
 void write_dictionary (Arbre *arbre_huffman, FILE *dictionary, Maillon *liste_dic);
 
-/**
- * \brief Function that create
- */
-void encodage();
+
+void encodage(char *fichierinput, char *fichieroutput, char *dictionnaire[256]);
 
 /**
  * \brief Function that free up a linked list memory space.

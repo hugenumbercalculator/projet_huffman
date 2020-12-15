@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Huffman&#39;s documentation: fonctions.h Source File</title>
+<title>My Project: fonctions.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Huffman&#39;s documentation
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -85,28 +85,40 @@ $(function() {
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#a31ff07f22051bbaecf99166bf24e4527">read_txt</a> ();</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">int</span> <a class="code" href="fonctions_8h.html#a70d9d8e26d51f8af2197e14ad33d29f7">nbr_char</a>(FILE *fichier);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">int</span> <a class="code" href="fonctions_8h.html#af86323c6f05fb4f2ec2d71096c9428f5">count_char</a>(FILE *fichier);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">// PARTIE 2</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span><a class="code" href="struct_maillon.html">Maillon</a> <a class="code" href="fonctions_8h.html#ae70b28de321dad448078e7f0836d1b67">occurrences</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span><a class="code" href="struct_maillon.html">Maillon</a>* <a class="code" href="fonctions_8h.html#aa4666bdd912f9003c0102c46ef20739d">occurrences</a>();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<a class="code" href="struct_maillon.html">Maillon</a> <a class="code" href="fonctions_8h.html#ae0b5b3467b584a369456b61d0453a249">minimum</a>(<a class="code" href="struct_maillon.html">Maillon</a> *liste_occ);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<a class="code" href="struct_maillon.html">Maillon</a>* <a class="code" href="fonctions_8h.html#ab6203c2252c30089c28853f53b2547ad">minimum_of_a_list</a>(<a class="code" href="struct_maillon.html">Maillon</a> *liste_occ);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<a class="code" href="struct_arbre.html">Arbre</a> <a class="code" href="fonctions_8h.html#ade422fd051db6693d80b6e1b8dbc69c6">huffman</a>(<a class="code" href="struct_maillon.html">Maillon</a> *liste_occ, <span class="keywordtype">int</span> nbr);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#ad1dbe6502526ef57071a89365c723ed8">write_dictionnary</a> (<a class="code" href="struct_arbre.html">Arbre</a> *arbre, FILE *dictionnaire, <a class="code" href="struct_maillon.html">Maillon</a> *liste_dic);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif // FONCTIONS_H_INCLUDED</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="fonctions_8h.html#a8d50a722885c5300059b805f0b8bba6d">   67</a></span>&#160;<a class="code" href="struct_maillon.html">Maillon</a>* <a class="code" href="fonctions_8h.html#a8d50a722885c5300059b805f0b8bba6d">delete_node</a>(<a class="code" href="struct_maillon.html">Maillon</a> *liste_occ, <span class="keywordtype">char</span> caractere);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<a class="code" href="struct_arbre.html">Arbre</a>* <a class="code" href="fonctions_8h.html#aa21858a58d556de9cb3371e6ce80fa59">create_huffman_tree</a>(<a class="code" href="struct_maillon.html">Maillon</a> *liste_occ, <span class="keywordtype">int</span> nbr);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#af7e47870a7c6f744e396e9692ea5140e">write_dictionary</a> (<a class="code" href="struct_arbre.html">Arbre</a> *arbre_huffman, FILE *dictionary, <a class="code" href="struct_maillon.html">Maillon</a> *liste_dic);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#a3fd5b737f7912dfcfc09dbc27e481b0a">encodage</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#a0175613b2fd25e7a40d12ebad44e6360">liberation_liste</a>(<a class="code" href="struct_maillon.html">Maillon</a>* liste);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordtype">void</span> <a class="code" href="fonctions_8h.html#a375c623736102300c74f7607b0e11995">liberation_arbre</a>(<a class="code" href="struct_arbre.html">Arbre</a> *arbre);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif // FONCTIONS_H_INCLUDED</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="afonctions_8h_html_a540ecbb944b7a5bdc3e21b99ee6bfe7f"><div class="ttname"><a href="fonctions_8h.html#a540ecbb944b7a5bdc3e21b99ee6bfe7f">Maillon</a></div><div class="ttdeci">struct Maillon Maillon</div><div class="ttdoc">A Maillon is composed by a character, an integer, and a pointer to the next Maillon.</div></div>
-<div class="ttc" id="afonctions_8h_html_ad1dbe6502526ef57071a89365c723ed8"><div class="ttname"><a href="fonctions_8h.html#ad1dbe6502526ef57071a89365c723ed8">write_dictionnary</a></div><div class="ttdeci">void write_dictionnary(Arbre *arbre, FILE *dictionnaire, Maillon *liste_dic)</div><div class="ttdoc">Function that create a dictionary by attributing a new short binary sequence to each character.</div><div class="ttdef"><b>Definition:</b> fonctions.c:123</div></div>
-<div class="ttc" id="afonctions_8h_html_a70d9d8e26d51f8af2197e14ad33d29f7"><div class="ttname"><a href="fonctions_8h.html#a70d9d8e26d51f8af2197e14ad33d29f7">nbr_char</a></div><div class="ttdeci">int nbr_char(FILE *fichier)</div><div class="ttdoc">Function that count the number of characters in a file.</div><div class="ttdef"><b>Definition:</b> fonctions.c:43</div></div>
-<div class="ttc" id="afonctions_8h_html_ade422fd051db6693d80b6e1b8dbc69c6"><div class="ttname"><a href="fonctions_8h.html#ade422fd051db6693d80b6e1b8dbc69c6">huffman</a></div><div class="ttdeci">Arbre huffman(Maillon *liste_occ, int nbr)</div><div class="ttdoc">Function that create a Huffman Tree.</div><div class="ttdef"><b>Definition:</b> fonctions.c:102</div></div>
-<div class="ttc" id="afonctions_8h_html_ae70b28de321dad448078e7f0836d1b67"><div class="ttname"><a href="fonctions_8h.html#ae70b28de321dad448078e7f0836d1b67">occurrences</a></div><div class="ttdeci">Maillon occurrences()</div><div class="ttdoc">Function that create a list of nodes representing characters in a text and their occurrences.</div><div class="ttdef"><b>Definition:</b> fonctions.c:54</div></div>
+<div class="ttc" id="afonctions_8h_html_af7e47870a7c6f744e396e9692ea5140e"><div class="ttname"><a href="fonctions_8h.html#af7e47870a7c6f744e396e9692ea5140e">write_dictionary</a></div><div class="ttdeci">void write_dictionary(Arbre *arbre_huffman, FILE *dictionary, Maillon *liste_dic)</div><div class="ttdoc">Function that create a dictionary by attributing a new short binary sequence to each character.</div><div class="ttdef"><b>Definition:</b> fonctions.c:145</div></div>
+<div class="ttc" id="afonctions_8h_html_aa4666bdd912f9003c0102c46ef20739d"><div class="ttname"><a href="fonctions_8h.html#aa4666bdd912f9003c0102c46ef20739d">occurrences</a></div><div class="ttdeci">Maillon * occurrences()</div><div class="ttdoc">Function that create a list of nodes representing characters in a text and their occurrences.</div><div class="ttdef"><b>Definition:</b> fonctions.c:54</div></div>
+<div class="ttc" id="afonctions_8h_html_ab6203c2252c30089c28853f53b2547ad"><div class="ttname"><a href="fonctions_8h.html#ab6203c2252c30089c28853f53b2547ad">minimum_of_a_list</a></div><div class="ttdeci">Maillon * minimum_of_a_list(Maillon *liste_occ)</div><div class="ttdoc">Function that finds the minimum of a nodes list.</div><div class="ttdef"><b>Definition:</b> fonctions.c:99</div></div>
+<div class="ttc" id="afonctions_8h_html_a0175613b2fd25e7a40d12ebad44e6360"><div class="ttname"><a href="fonctions_8h.html#a0175613b2fd25e7a40d12ebad44e6360">liberation_liste</a></div><div class="ttdeci">void liberation_liste(Maillon *liste)</div><div class="ttdoc">Function that free up a linked list memory space.</div><div class="ttdef"><b>Definition:</b> fonctions.c:194</div></div>
+<div class="ttc" id="afonctions_8h_html_a8d50a722885c5300059b805f0b8bba6d"><div class="ttname"><a href="fonctions_8h.html#a8d50a722885c5300059b805f0b8bba6d">delete_node</a></div><div class="ttdeci">Maillon * delete_node(Maillon *liste_occ, char caractere)</div><div class="ttdoc">Function that delete a node of a simply chained list.</div></div>
+<div class="ttc" id="afonctions_8h_html_a3fd5b737f7912dfcfc09dbc27e481b0a"><div class="ttname"><a href="fonctions_8h.html#a3fd5b737f7912dfcfc09dbc27e481b0a">encodage</a></div><div class="ttdeci">void encodage()</div><div class="ttdoc">Function that create.</div><div class="ttdef"><b>Definition:</b> fonctions.c:185</div></div>
+<div class="ttc" id="afonctions_8h_html_af86323c6f05fb4f2ec2d71096c9428f5"><div class="ttname"><a href="fonctions_8h.html#af86323c6f05fb4f2ec2d71096c9428f5">count_char</a></div><div class="ttdeci">int count_char(FILE *fichier)</div><div class="ttdoc">Function that count the number of characters in a file.</div><div class="ttdef"><b>Definition:</b> fonctions.c:43</div></div>
+<div class="ttc" id="afonctions_8h_html_a375c623736102300c74f7607b0e11995"><div class="ttname"><a href="fonctions_8h.html#a375c623736102300c74f7607b0e11995">liberation_arbre</a></div><div class="ttdeci">void liberation_arbre(Arbre *arbre)</div><div class="ttdoc">Function that free up a tree's memory space.</div><div class="ttdef"><b>Definition:</b> fonctions.c:207</div></div>
 <div class="ttc" id="afonctions_8h_html_a31ff07f22051bbaecf99166bf24e4527"><div class="ttname"><a href="fonctions_8h.html#a31ff07f22051bbaecf99166bf24e4527">read_txt</a></div><div class="ttdeci">void read_txt()</div><div class="ttdoc">Function that treat text files.</div><div class="ttdef"><b>Definition:</b> fonctions.c:25</div></div>
 <div class="ttc" id="afonctions_8h_html_affd1feccdb225997be494bcdb0572fa6"><div class="ttname"><a href="fonctions_8h.html#affd1feccdb225997be494bcdb0572fa6">Arbre</a></div><div class="ttdeci">struct Arbre Arbre</div><div class="ttdoc">Arbre owns 3 pointers : Maillon, and 2 other Arbre.</div></div>
-<div class="ttc" id="afonctions_8h_html_ae0b5b3467b584a369456b61d0453a249"><div class="ttname"><a href="fonctions_8h.html#ae0b5b3467b584a369456b61d0453a249">minimum</a></div><div class="ttdeci">Maillon minimum(Maillon *liste_occ)</div><div class="ttdoc">Function that finds the minimum of a nodes list.</div><div class="ttdef"><b>Definition:</b> fonctions.c:85</div></div>
 <div class="ttc" id="afonctions_8h_html_a22241c85a9835b33984ab9cf25f7d359"><div class="ttname"><a href="fonctions_8h.html#a22241c85a9835b33984ab9cf25f7d359">write_binary</a></div><div class="ttdeci">void write_binary(char caractere)</div><div class="ttdoc">Function that translate a character into binary sequence, and write it in a text file.</div><div class="ttdef"><b>Definition:</b> fonctions.c:7</div></div>
+<div class="ttc" id="afonctions_8h_html_aa21858a58d556de9cb3371e6ce80fa59"><div class="ttname"><a href="fonctions_8h.html#aa21858a58d556de9cb3371e6ce80fa59">create_huffman_tree</a></div><div class="ttdeci">Arbre * create_huffman_tree(Maillon *liste_occ, int nbr)</div><div class="ttdoc">Function that create a Huffman Tree.</div><div class="ttdef"><b>Definition:</b> fonctions.c:122</div></div>
 <div class="ttc" id="astruct_arbre_html"><div class="ttname"><a href="struct_arbre.html">Arbre</a></div><div class="ttdef"><b>Definition:</b> fonctions.h:24</div></div>
 <div class="ttc" id="astruct_maillon_html"><div class="ttname"><a href="struct_maillon.html">Maillon</a></div><div class="ttdef"><b>Definition:</b> fonctions.h:14</div></div>
 <!-- start footer part -->

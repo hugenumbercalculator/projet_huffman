@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['defiler_20',['defiler',['../files_8h.html#a518746dbccdb408a5d3ddae945868a5f',1,'files.c']]]
+  ['count_5fchar_26',['count_char',['../fonctions_8h.html#af86323c6f05fb4f2ec2d71096c9428f5',1,'fonctions.c']]],
+  ['create_5fhuffman_5ftree_27',['create_huffman_tree',['../fonctions_8h.html#aa21858a58d556de9cb3371e6ce80fa59',1,'fonctions.c']]]
 ];
