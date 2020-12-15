@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['huffman_22',['huffman',['../fonctions_8h.html#ade422fd051db6693d80b6e1b8dbc69c6',1,'fonctions.c']]]
+  ['encodage_30',['encodage',['../fonctions_8h.html#a3fd5b737f7912dfcfc09dbc27e481b0a',1,'fonctions.c']]],
+  ['enfiler_31',['enfiler',['../files_8h.html#a6929e14a8187a401622d65ee8d67bf51',1,'files.c']]]
 ];

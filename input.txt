@@ -1,1 +1,1 @@
-kais
+Le principe de base d'une structure de données, c'est de stocker des éléments auxquels le programmeur veut pouvoir accéder plus tard. On appelle les différentes utilisations possibles de la structure de données des opérations.s de données et savoir faire un choix joue donc un rôle très important pour le programmeur.

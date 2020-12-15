@@ -40,7 +40,7 @@ void read_txt ()
     fclose(binary);
 }
 
-int nbr_char(FILE *fichier)
+int count_char(FILE *fichier)
 {
     int nbr = 0;
     if (!fichier) return nbr;
@@ -49,6 +49,16 @@ int nbr_char(FILE *fichier)
             nbr += 1;
         return nbr;
     }
+}
+
+int count_node(Maillon *liste)
+{
+    int nbr = 0;
+    while (liste != NULL){
+        nbr ++;
+        liste = liste->next;
+    }
+    return nbr;
 }
 
 Maillon* occurrences()
@@ -96,41 +106,59 @@ Maillon* occurrences()
     return liste_ref;
 }
 
-Maillon* minimum(Maillon *liste_occ)
+Maillon* minimum_of_a_list(Maillon *liste_occ)
 {
-    Maillon *temp;
-    temp = (Maillon*)malloc(sizeof(Maillon));
-    temp->caractere = liste_occ->caractere;
-    temp->occurrences = liste_occ->occurrences;
+    Maillon *minimum;
+    minimum = (Maillon*)malloc(sizeof(Maillon));
+    minimum->caractere = liste_occ->caractere;
+    minimum->occurrences = liste_occ->occurrences;
     liste_occ = liste_occ->next;
 
     while (liste_occ){
-        if (liste_occ->occurrences < temp->occurrences){
-            temp->occurrences = liste_occ->occurrences;
-            temp->caractere = liste_occ->caractere;
+        if (liste_occ->occurrences < minimum->occurrences){
+            minimum->occurrences = liste_occ->occurrences;
+            minimum->caractere = liste_occ->caractere;
         }
         liste_occ = liste_occ->next;
     }
-    return temp;
+    return minimum;
+}
+
+void delete_node(Maillon **liste, char caractere)
+{
+    Maillon *temporaire;
+    temporaire = (Maillon*)malloc(sizeof(Maillon));
+
+    if (*liste != NULL){
+        delete_node(&(*liste)->next, caractere);
+        if ((*liste)->caractere == caractere){
+            temporaire = *liste;
+            *liste = (*liste)->next;
+            free(temporaire);
+        }
+    }
 }
 
 Arbre* create_huffman_tree(Maillon *liste_occ, int nbr)
 {
     Arbre *arbre_huffman;
-    File *file;
     arbre_huffman = (Arbre*)malloc(sizeof(Arbre));
+    File *file;
     file = (File*)malloc(sizeof(File));
+    file->first = NULL;
 
     for (int i=0; i<nbr; i++){
-        arbre_huffman->noeud->occurrences = minimum(&liste_occ)->occurrences;
-        arbre_huffman->noeud->caractere = minimum(&liste_occ)->caractere;
+        arbre_huffman->noeud = minimum_of_a_list(liste_occ);
+        delete_node(&liste_occ, arbre_huffman->noeud->caractere);
         enfiler(file,arbre_huffman);
     }
-
     while (file){
-        arbre_huffman->sag = defiler(file);
-        arbre_huffman->sad = defiler(file);
-        arbre_huffman->noeud->occurrences = arbre_huffman->sad->noeud->occurrences + arbre_huffman->sag->noeud->occurrences;
+        Arbre *new_node;
+        new_node = (Arbre*)malloc(sizeof(Arbre));
+        new_node->sag = defiler(file);
+        new_node->sad = defiler(file);
+        new_node->noeud->occurrences = new_node->sad->noeud->occurrences + new_node->sag->noeud->occurrences;
+        printf("%d",new_node->noeud->occurrences);
     }
     return arbre_huffman;
 }
@@ -176,13 +204,17 @@ void write_dictionary(Arbre *arbre_huffman, FILE *dictionary, Maillon *liste_dic
     }
 }
 
-void encodage()
+void encodage(char* fichierinput,char* fichieroutput,char *dictionnaire[256])
 {
-    FILE *new_file, *dictionnary;
-    new_file = fopen("encoding.txt","w");
-    dictionnary = fopen("dictionnary.txt","r");
-
-    fclose(new_file);
+    char chaine[500]; //Element_d *temp = liste;
+    FILE* texte = fopen("input.txt", "r");
+    FILE* texteout = fopen("binary.txt", "w");
+    while (fgets(chaine,500,texte)){
+        for (int j=0;chaine[j]!='0';j++)
+            fprintf(texteout,"%s",dictionnaire[chaine[j]]);
+    }
+    fclose(texte);
+    fclose(texteout);
 }
 
 void liberation_liste(Maillon *liste)

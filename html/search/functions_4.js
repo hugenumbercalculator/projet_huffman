@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nbr_5fchar_24',['nbr_char',['../fonctions_8h.html#a70d9d8e26d51f8af2197e14ad33d29f7',1,'fonctions.c']]]
+  ['minimum_5fof_5fa_5flist_34',['minimum_of_a_list',['../fonctions_8h.html#ab6203c2252c30089c28853f53b2547ad',1,'fonctions.c']]]
 ];

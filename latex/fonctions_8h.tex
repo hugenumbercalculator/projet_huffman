@@ -29,16 +29,25 @@ void \mbox{\hyperlink{fonctions_8h_a22241c85a9835b33984ab9cf25f7d359}{write\+\_\
 \mbox{\Hypertarget{fonctions_8h_a31ff07f22051bbaecf99166bf24e4527}\label{fonctions_8h_a31ff07f22051bbaecf99166bf24e4527}} 
 void \mbox{\hyperlink{fonctions_8h_a31ff07f22051bbaecf99166bf24e4527}{read\+\_\+txt}} ()
 \begin{DoxyCompactList}\small\item\em Function that treat text files. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{fonctions_8h_a70d9d8e26d51f8af2197e14ad33d29f7}{nbr\+\_\+char}} (F\+I\+LE $\ast$fichier)
+int \mbox{\hyperlink{fonctions_8h_af86323c6f05fb4f2ec2d71096c9428f5}{count\+\_\+char}} (F\+I\+LE $\ast$fichier)
 \begin{DoxyCompactList}\small\item\em Function that count the number of characters in a file. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_maillon}{Maillon}} \mbox{\hyperlink{fonctions_8h_ae70b28de321dad448078e7f0836d1b67}{occurrences}} ()
+\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$ \mbox{\hyperlink{fonctions_8h_aa4666bdd912f9003c0102c46ef20739d}{occurrences}} ()
 \begin{DoxyCompactList}\small\item\em Function that create a list of nodes representing characters in a text and their occurrences. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_maillon}{Maillon}} \mbox{\hyperlink{fonctions_8h_ae0b5b3467b584a369456b61d0453a249}{minimum}} (\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$liste\+\_\+occ)
+\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$ \mbox{\hyperlink{fonctions_8h_ab6203c2252c30089c28853f53b2547ad}{minimum\+\_\+of\+\_\+a\+\_\+list}} (\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$liste\+\_\+occ)
 \begin{DoxyCompactList}\small\item\em Function that finds the minimum of a nodes list. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_arbre}{Arbre}} \mbox{\hyperlink{fonctions_8h_ade422fd051db6693d80b6e1b8dbc69c6}{huffman}} (\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$liste\+\_\+occ, int nbr)
+\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$ \mbox{\hyperlink{fonctions_8h_a8d50a722885c5300059b805f0b8bba6d}{delete\+\_\+node}} (\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$liste\+\_\+occ, char caractere)
+\begin{DoxyCompactList}\small\item\em Function that delete a node of a simply chained list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_arbre}{Arbre}} $\ast$ \mbox{\hyperlink{fonctions_8h_aa21858a58d556de9cb3371e6ce80fa59}{create\+\_\+huffman\+\_\+tree}} (\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$liste\+\_\+occ, int nbr)
 \begin{DoxyCompactList}\small\item\em Function that create a Huffman Tree. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{fonctions_8h_ad1dbe6502526ef57071a89365c723ed8}{write\+\_\+dictionnary}} (\mbox{\hyperlink{struct_arbre}{Arbre}} $\ast$arbre, F\+I\+LE $\ast$dictionnaire, \mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$liste\+\_\+dic)
-\begin{DoxyCompactList}\small\item\em Function that create a dictionary by attributing a new short binary sequence to each character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{fonctions_8h_af7e47870a7c6f744e396e9692ea5140e}{write\+\_\+dictionary}} (\mbox{\hyperlink{struct_arbre}{Arbre}} $\ast$arbre\+\_\+huffman, F\+I\+LE $\ast$dictionary, \mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$liste\+\_\+dic)
+\begin{DoxyCompactList}\small\item\em Function that create a dictionary by attributing a new short binary sequence to each character. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{fonctions_8h_a3fd5b737f7912dfcfc09dbc27e481b0a}\label{fonctions_8h_a3fd5b737f7912dfcfc09dbc27e481b0a}} 
+void \mbox{\hyperlink{fonctions_8h_a3fd5b737f7912dfcfc09dbc27e481b0a}{encodage}} ()
+\begin{DoxyCompactList}\small\item\em Function that create. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fonctions_8h_a0175613b2fd25e7a40d12ebad44e6360}{liberation\+\_\+liste}} (\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$liste)
+\begin{DoxyCompactList}\small\item\em Function that free up a linked list memory space. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fonctions_8h_a375c623736102300c74f7607b0e11995}{liberation\+\_\+arbre}} (\mbox{\hyperlink{struct_arbre}{Arbre}} $\ast$arbre)
+\begin{DoxyCompactList}\small\item\em Function that free up a tree\textquotesingle{}s memory space. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -53,11 +62,29 @@ November 2020
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{fonctions_8h_ade422fd051db6693d80b6e1b8dbc69c6}\label{fonctions_8h_ade422fd051db6693d80b6e1b8dbc69c6}} 
-\index{fonctions.h@{fonctions.h}!huffman@{huffman}}
-\index{huffman@{huffman}!fonctions.h@{fonctions.h}}
-\doxysubsubsection{\texorpdfstring{huffman()}{huffman()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_arbre}{Arbre}} huffman (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$}]{liste\+\_\+occ,  }\item[{int}]{nbr }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{fonctions_8h_af86323c6f05fb4f2ec2d71096c9428f5}\label{fonctions_8h_af86323c6f05fb4f2ec2d71096c9428f5}} 
+\index{fonctions.h@{fonctions.h}!count\_char@{count\_char}}
+\index{count\_char@{count\_char}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{count\_char()}{count\_char()}}
+{\footnotesize\ttfamily int count\+\_\+char (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{fichier }\end{DoxyParamCaption})}
+
+
+
+Function that count the number of characters in a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & file we have to process. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer representing the number of characters in the file. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fonctions_8h_aa21858a58d556de9cb3371e6ce80fa59}\label{fonctions_8h_aa21858a58d556de9cb3371e6ce80fa59}} 
+\index{fonctions.h@{fonctions.h}!create\_huffman\_tree@{create\_huffman\_tree}}
+\index{create\_huffman\_tree@{create\_huffman\_tree}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{create\_huffman\_tree()}{create\_huffman\_tree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_arbre}{Arbre}}$\ast$ create\+\_\+huffman\+\_\+tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$}]{liste\+\_\+occ,  }\item[{int}]{nbr }\end{DoxyParamCaption})}
 
 
 
@@ -73,11 +100,61 @@ Function that create a Huffman Tree.
 \begin{DoxyReturn}{Returns}
 A tree\textquotesingle{}s node, the first of the queue. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{fonctions_8h_ae0b5b3467b584a369456b61d0453a249}\label{fonctions_8h_ae0b5b3467b584a369456b61d0453a249}} 
-\index{fonctions.h@{fonctions.h}!minimum@{minimum}}
-\index{minimum@{minimum}!fonctions.h@{fonctions.h}}
-\doxysubsubsection{\texorpdfstring{minimum()}{minimum()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_maillon}{Maillon}} minimum (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$}]{liste\+\_\+occ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{fonctions_8h_a8d50a722885c5300059b805f0b8bba6d}\label{fonctions_8h_a8d50a722885c5300059b805f0b8bba6d}} 
+\index{fonctions.h@{fonctions.h}!delete\_node@{delete\_node}}
+\index{delete\_node@{delete\_node}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{delete\_node()}{delete\_node()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_maillon}{Maillon}}$\ast$ delete\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$}]{liste\+\_\+occ,  }\item[{char}]{caractere }\end{DoxyParamCaption})}
+
+
+
+Function that delete a node of a simply chained list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & list we have to process. \\
+\hline
+{\em The} & character of the node we have to delete. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A node. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fonctions_8h_a375c623736102300c74f7607b0e11995}\label{fonctions_8h_a375c623736102300c74f7607b0e11995}} 
+\index{fonctions.h@{fonctions.h}!liberation\_arbre@{liberation\_arbre}}
+\index{liberation\_arbre@{liberation\_arbre}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{liberation\_arbre()}{liberation\_arbre()}}
+{\footnotesize\ttfamily void liberation\+\_\+arbre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_arbre}{Arbre}} $\ast$}]{arbre }\end{DoxyParamCaption})}
+
+
+
+Function that free up a tree\textquotesingle{}s memory space. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & Huffman tree. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_a0175613b2fd25e7a40d12ebad44e6360}\label{fonctions_8h_a0175613b2fd25e7a40d12ebad44e6360}} 
+\index{fonctions.h@{fonctions.h}!liberation\_liste@{liberation\_liste}}
+\index{liberation\_liste@{liberation\_liste}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{liberation\_liste()}{liberation\_liste()}}
+{\footnotesize\ttfamily void liberation\+\_\+liste (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$}]{liste }\end{DoxyParamCaption})}
+
+
+
+Function that free up a linked list memory space. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & linked list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fonctions_8h_ab6203c2252c30089c28853f53b2547ad}\label{fonctions_8h_ab6203c2252c30089c28853f53b2547ad}} 
+\index{fonctions.h@{fonctions.h}!minimum\_of\_a\_list@{minimum\_of\_a\_list}}
+\index{minimum\_of\_a\_list@{minimum\_of\_a\_list}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{minimum\_of\_a\_list()}{minimum\_of\_a\_list()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_maillon}{Maillon}}$\ast$ minimum\+\_\+of\+\_\+a\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$}]{liste\+\_\+occ }\end{DoxyParamCaption})}
 
 
 
@@ -91,29 +168,11 @@ Function that finds the minimum of a nodes list.
 \begin{DoxyReturn}{Returns}
 A node. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{fonctions_8h_a70d9d8e26d51f8af2197e14ad33d29f7}\label{fonctions_8h_a70d9d8e26d51f8af2197e14ad33d29f7}} 
-\index{fonctions.h@{fonctions.h}!nbr\_char@{nbr\_char}}
-\index{nbr\_char@{nbr\_char}!fonctions.h@{fonctions.h}}
-\doxysubsubsection{\texorpdfstring{nbr\_char()}{nbr\_char()}}
-{\footnotesize\ttfamily int nbr\+\_\+char (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{fichier }\end{DoxyParamCaption})}
-
-
-
-Function that count the number of characters in a file. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em The} & file we have to process. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-An integer representing the number of characters in the file. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{fonctions_8h_ae70b28de321dad448078e7f0836d1b67}\label{fonctions_8h_ae70b28de321dad448078e7f0836d1b67}} 
+\mbox{\Hypertarget{fonctions_8h_aa4666bdd912f9003c0102c46ef20739d}\label{fonctions_8h_aa4666bdd912f9003c0102c46ef20739d}} 
 \index{fonctions.h@{fonctions.h}!occurrences@{occurrences}}
 \index{occurrences@{occurrences}!fonctions.h@{fonctions.h}}
 \doxysubsubsection{\texorpdfstring{occurrences()}{occurrences()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_maillon}{Maillon}} occurrences (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_maillon}{Maillon}}$\ast$ occurrences (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -137,11 +196,11 @@ Function that translate a character into binary sequence, and write it in a text
 {\em The} & character we have to write in binary. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{fonctions_8h_ad1dbe6502526ef57071a89365c723ed8}\label{fonctions_8h_ad1dbe6502526ef57071a89365c723ed8}} 
-\index{fonctions.h@{fonctions.h}!write\_dictionnary@{write\_dictionnary}}
-\index{write\_dictionnary@{write\_dictionnary}!fonctions.h@{fonctions.h}}
-\doxysubsubsection{\texorpdfstring{write\_dictionnary()}{write\_dictionnary()}}
-{\footnotesize\ttfamily void write\+\_\+dictionnary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_arbre}{Arbre}} $\ast$}]{arbre,  }\item[{F\+I\+LE $\ast$}]{dictionnaire,  }\item[{\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$}]{liste\+\_\+dic }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{fonctions_8h_af7e47870a7c6f744e396e9692ea5140e}\label{fonctions_8h_af7e47870a7c6f744e396e9692ea5140e}} 
+\index{fonctions.h@{fonctions.h}!write\_dictionary@{write\_dictionary}}
+\index{write\_dictionary@{write\_dictionary}!fonctions.h@{fonctions.h}}
+\doxysubsubsection{\texorpdfstring{write\_dictionary()}{write\_dictionary()}}
+{\footnotesize\ttfamily void write\+\_\+dictionary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_arbre}{Arbre}} $\ast$}]{arbre\+\_\+huffman,  }\item[{F\+I\+LE $\ast$}]{dictionary,  }\item[{\mbox{\hyperlink{struct_maillon}{Maillon}} $\ast$}]{liste\+\_\+dic }\end{DoxyParamCaption})}
 
 
 
@@ -153,6 +212,6 @@ Function that create a dictionary by attributing a new short binary sequence to 
 \hline
 {\em The} & text file we have to write on. \\
 \hline
-{\em A} & list of nodes containing characters an their occurrences. \\
+{\em A} & list of nodes containing binary suites. \\
 \hline
 \end{DoxyParams}
